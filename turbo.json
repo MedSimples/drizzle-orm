@@ -70,6 +70,28 @@
 			],
 			"outputLogs": "new-only"
 		},
+		"drizzle-kit-do#build": {
+			"dependsOn": [
+				"drizzle-orm#build"
+			],
+			"inputs": [
+				"src/**/*.ts",
+				"package.json",
+				"README.md",
+				"../README.md",
+				"tsconfig.json",
+				"tsconfig.*.json",
+				"tsup.config.ts",
+				"scripts/build.ts",
+				"scripts/fix-imports.ts",
+				"../tsconfig.json"
+			],
+			"outputs": [
+				"dist/**",
+				"dist-dts/**"
+			],
+			"outputLogs": "new-only"
+		},
 		"drizzle-zod#build": {
 			"dependsOn": [
 				"drizzle-orm#build"
