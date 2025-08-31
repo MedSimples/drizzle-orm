@@ -1,6 +1,7 @@
 packages:
   - drizzle-orm
   - drizzle-kit
+  - drizzle-kit-do
   - drizzle-zod
   - drizzle-typebox
   - drizzle-valibot
