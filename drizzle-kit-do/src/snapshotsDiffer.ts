@@ -45,6 +45,7 @@ import { mapEntries, mapKeys } from './global';
 import { SQLiteSchema, SQLiteSchemaSquashed, SQLiteSquasher, View as SqliteView } from './serializer/sqliteSchema';
 import { libSQLCombineStatements, sqliteCombineStatements } from './statementCombiner';
 import { copy, prepareMigrationMeta } from './utils';
+import { sequenceSquashed } from './serializer/pgSchema';
 
 const makeChanged = <T extends ZodTypeAny>(schema: T) => {
 	return object({
@@ -259,6 +260,7 @@ export const diffResultSchemeSQLite = object({
 
 export type Column = TypeOf<typeof columnSchema>;
 export type AlteredColumn = TypeOf<typeof alteredColumnSchema>;
+export type Sequence = TypeOf<typeof sequenceSquashed>;
 export type Enum = TypeOf<typeof enumSchema>;
 export type Table = TypeOf<typeof tableScheme>;
 export type AlteredTable = TypeOf<typeof alteredTableScheme>;

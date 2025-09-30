@@ -1,6 +1,6 @@
 {
 	"name": "@medsimples/drizzle-kit-do",
-	"version": "0.31.12",
+	"version": "0.31.21",
 	"homepage": "https://orm.drizzle.team",
 	"keywords": [
 		"drizzle",
@@ -36,9 +36,7 @@
 		"build": "rm -rf ./dist && tsx build.ts",
 		"build:dev": "rm -rf ./dist && tsx build.dev.ts && tsc -p tsconfig.cli-types.json && chmod +x ./dist/index.cjs",
 		"pack": "cp package.json README.md dist/ && (cd dist && npm pack --pack-destination ..) && rm -f package.tgz && mv *.tgz package.tgz",
-		"tsc": "tsc -p tsconfig.build.json --noEmit",
-		"publish": "npm publish package.tgz --access public",
-		"ci": "pnpm run build && pnpm run pack && pnpm run publish"
+		"tsc": "tsc -p tsconfig.build.json --noEmit"
 	},
 	"dependencies": {
 		"@drizzle-team/brocli": "^0.10.2",
@@ -106,10 +104,12 @@
 		"zod": "^3.20.2",
 		"zx": "^8.3.2"
 	},
+	"main": "./dist/api.js",
+	"types": "./dist/api.d.mts",
 	"exports": {
 		"./api": {
-			"types": "./dist/api.d.ts",
-			"default": "./dist/api.cjs"
+			"types": "./dist/api.d.mts",
+			"default": "./dist/api.js"
 		}
 	},
 	"files": ["dist"]

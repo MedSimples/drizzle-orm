@@ -2,6 +2,12 @@ import { parse } from 'url';
 import { assertUnreachable, snapshotVersion } from './global';
 import { backwardCompatibleSqliteSchema, Dialect } from './serializer/sqliteSchema';
 
+export const debug = (...args: any[]) => {
+	if (process.env.DRIZZLE_KIT_DO_DEBUG === 'true') {
+		// console.log('[drizzle-kit-do]', ...args);
+	}
+};
+
 export type DB = {
 	query: <T extends any = any>(sql: string, params?: any[]) => Promise<T[]>;
 };
